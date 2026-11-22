@@ -1,0 +1,486 @@
+
+/* ==================================
+   JOSTYCOON - NEON GLASS DESIGN
+================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple: #a855f7;
+    --blue: #38bdf8;
+    --background: #080b14;
+    --text: #ffffff;
+    --muted: #a1a1aa;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    overflow-x: hidden;
+    isolation: isolate;
+}
+
+/* ==================================
+   BACKGROUND
+================================== */
+
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            rgba(5, 8, 18, 0.55),
+            rgba(5, 8, 18, 0.72)
+        ),
+        url("image/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* ==================================
+   PARTICLE CANVAS
+================================== */
+
+#particles {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ==================================
+   MAIN CONTAINER
+================================== */
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px 16px;
+}
+
+/* ==================================
+   GLASS PROFILE CARD
+================================== */
+
+.profile-card {
+    width: 100%;
+    max-width: 430px;
+
+    overflow: hidden;
+    position: relative;
+
+    background: rgba(12, 15, 32, 0.38);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    animation: appear 0.9s ease;
+}
+
+/* ==================================
+   BANNER
+================================== */
+
+.banner {
+    height: 175px;
+    width: 100%;
+
+    background:
+        url("image/banner.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        transparent,
+        rgba(10,13,25,0.5)
+    );
+}
+
+/* ==================================
+   PROFILE IMAGE GLOW
+================================== */
+
+.profile-image {
+    width: 125px;
+    height: 125px;
+
+    margin: -65px auto 0;
+
+    position: relative;
+    z-index: 2;
+
+    border-radius: 50%;
+    padding: 5px;
+
+    background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue),
+        var(--purple)
+    );
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,0.7),
+        0 0 35px rgba(56,189,248,0.45);
+
+    animation: profileGlow 3s ease-in-out infinite;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+    border: 4px solid #111827;
+}
+
+/* ==================================
+   PROFILE INFORMATION
+================================== */
+
+.profile-info {
+    text-align: center;
+    padding: 15px 25px 10px;
+}
+
+.profile-info h1 {
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    text-shadow: 0 0 15px rgba(168,85,247,0.5);
+}
+
+.verified {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 7px;
+
+    color: var(--blue);
+    font-size: 12px;
+}
+
+.description {
+    color: #d1d5db;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    margin-top: 16px;
+}
+
+/* ==================================
+   SOCIAL SECTION
+================================== */
+
+.social-section {
+    padding: 20px 25px 25px;
+}
+
+.social-section h2 {
+    text-align: center;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    color: #d4d4d8;
+
+    margin-bottom: 18px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ==================================
+   SOCIAL BUTTONS
+================================== */
+
+.social-link {
+    width: 100%;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 10px 15px;
+
+    text-decoration: none;
+    color: white;
+
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+
+    transition: 0.3s ease;
+}
+
+.social-link span {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.1);
+    font-size: 19px;
+}
+
+.arrow {
+    font-size: 12px;
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+
+    background: rgba(168,85,247,0.18);
+
+    border-color: var(--purple);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,0.2);
+}
+
+.social-link:hover .arrow {
+    color: white;
+    transform: translate(3px,-3px);
+}
+
+.youtube .social-icon {
+    color: #ff4545;
+}
+
+.tiktok .social-icon {
+    color: #38bdf8;
+}
+
+.github .social-icon {
+    color: white;
+}
+
+/* ==================================
+   FOOTER
+================================== */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 17px 25px;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* ==================================
+   FLOATING MUSIC PLAYER
+================================== */
+
+.music-player {
+    position: fixed;
+    z-index: 5;
+
+    bottom: 22px;
+    right: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 15px;
+
+    background: rgba(15,18,35,0.75);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(168,85,247,0.4);
+    border-radius: 50px;
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,0.2);
+}
+
+.music-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue)
+    );
+
+    cursor: pointer;
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,0.7);
+}
+
+.music-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.music-details span {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+#volumeControl {
+    width: 90px;
+    accent-color: var(--purple);
+    cursor: pointer;
+}
+
+/* ==================================
+   ANIMATIONS
+================================== */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes profileGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 15px rgba(168,85,247,0.5),
+            0 0 25px rgba(56,189,248,0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px rgba(168,85,247,0.9),
+            0 0 45px rgba(56,189,248,0.7);
+    }
+}
+
+/* ==================================
+   MOBILE RESPONSIVE
+================================== */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 25px 14px;
+    }
+
+    .profile-card {
+        border-radius: 20px;
+    }
+
+    .banner {
+        height: 155px;
+    }
+
+    .profile-image {
+        width: 115px;
+        height: 115px;
+        margin-top: -58px;
+    }
+
+    .profile-info h1 {
+        font-size: 25px;
+    }
+
+    .social-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .music-player {
+        bottom: 15px;
+        right: 12px;
+    }
+}
+
+/* Reduce motion for accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
