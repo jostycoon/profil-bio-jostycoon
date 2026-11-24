@@ -484,3 +484,270 @@ footer {
         scroll-behavior: auto !important;
     }
 }
+
+
+/* ==================================
+   JOSTYCOON STORE
+================================== */
+
+.store-section {
+    padding: 25px 22px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.store-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.store-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #a855f7;
+    font-weight: bold;
+}
+
+.store-header h2 {
+    font-size: 22px;
+    margin-top: 6px;
+}
+
+.store-header p {
+    color: #a1a1aa;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+.store-main-icon {
+    font-size: 28px;
+    color: #a855f7;
+    filte
+      
+  r: drop-shadow(0 0 10px #a855f7);
+}
+
+/* PRODUCT GRID */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+/* PRODUCT CARD */
+
+.product-card {
+    overflow: hidden;
+
+    background: rgba(255,255,255,0.055);
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #a855f7;
+
+    box-shadow:
+        0 8px 25px rgba(168,85,247,0.2);
+}
+
+/* PRODUCT IMAGE */
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(255,255,255,0.05);
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.06);
+}
+
+/* PRODUCT BADGE */
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 9px;
+
+    padding: 5px 8px;
+
+    font-size: 8px;
+    font-weight: bold;
+
+    color: white;
+    background: #9333ea;
+
+    border-radius: 6px;
+}
+
+.product-info {
+    padding: 12px;
+}
+
+.product-info h3 {
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.product-description {
+    font-size: 10px;
+    color: #a1a1aa;
+    line-height: 1.5;
+
+    min-height: 30px;
+}
+
+.product-price {
+    color: #c084fc;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    margin: 12px 0;
+}
+
+/* BUY BUTTON */
+
+.buy-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    width: 100%;
+    padding: 10px 5px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+    color: white;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    background: linear-gradient(
+        135deg,
+        #9333ea,
+        #6366f1
+    );
+
+    transition: 0.3s;
+}
+
+.buy-button:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 15px rgba(168,85,247,0.4);
+}
+
+/* CONTACT SECTION */
+
+.store-contact {
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    text-align: center;
+}
+
+.store-contact p {
+    font-size: 12px;
+    color: #d4d4d8;
+    margin-bottom: 13px;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-button {
+    flex: 1;
+
+    padding: 12px 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    text-decoration: none;
+    color: white;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.whatsapp-contact {
+    background: rgba(37,211,102,0.16);
+    border: 1px solid #25D366;
+}
+
+.telegram-contact {
+    background: rgba(56,189,248,0.16);
+    border: 1px solid #38bdf8;
+}
+
+.whatsapp-contact:hover {
+    background: #25D366;
+}
+
+.telegram-contact:hover {
+    background: #229ED9;
+}
+
+/* MOBILE */
+
+@media (max-width: 350px) {
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.store-section {
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.store-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.product-card {
+  min-width: 0;
+}

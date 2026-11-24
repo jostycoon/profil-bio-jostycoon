@@ -267,3 +267,188 @@ music.addEventListener("play", () => {
     musicButton.setAttribute("aria-label", "Pause music");
 
 });
+
+
+/* ==================================
+   JOSTYCOON STORE SYSTEM
+================================== */
+
+// STORE CONFIGURATION
+
+const storeConfig = {
+
+    whatsapp: "6281234567890",
+
+    telegram: "USERNAME"
+
+};
+
+
+// PRODUCT DATABASE
+
+const products = [
+
+    {
+        id: 1,
+
+        name: "Premium Package",
+
+        description: "Premium digital service package.",
+
+        price: 50000,
+
+        image: "assets/products/product1.jpg",
+
+        badge: "BEST SELLER"
+    },
+
+    {
+        id: 2,
+
+        name: "Digital Product",
+
+        description: "Useful digital product for everyone.",
+
+        price: 35000,
+
+        image: "assets/products/product2.jpg",
+
+        badge: "NEW"
+    },
+
+    {
+        id: 3,
+
+        name: "Special Package",
+
+        description: "Exclusive package from Jostycoon.",
+
+        price: 75000,
+
+        image: "assets/products/product3.jpg",
+
+        badge: "POPULAR"
+    },
+
+    {
+        id: 4,
+
+        name: "Basic Package",
+
+        description: "Affordable package for beginners.",
+
+        price: 25000,
+
+        image: "assets/products/product4.jpg",
+
+        badge: ""
+    }
+
+];
+
+
+// FORMAT RUPIAH
+
+function formatPrice(price) {
+
+    return new Intl.NumberFormat("id-ID", {
+
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+
+    }).format(price);
+
+}
+
+
+// GENERATE WHATSAPP LINK
+
+function createWhatsAppLink(product) {
+
+    const message =
+        `Halo Jostycoon! Saya tertarik membeli produk ${product.name}. Harga: ${formatPrice(product.price)}. Apakah produk ini masih tersedia?`;
+
+    return `https://wa.me/${storeConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+
+}
+
+
+// GENERATE TELEGRAM LINK
+
+function createTelegramLink() {
+
+    return `https://t.me/${storeConfig.telegram}`;
+
+}
+
+
+// DISPLAY PRODUCTS
+
+function renderProducts() {
+
+    const productGrid = document.getElementById("productGrid");
+
+    if (!productGrid) return;
+
+    productGrid.innerHTML = products.map(product => {
+
+        return `
+
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                        loading="lazy"
+                    >
+
+                    ${
+                        product.badge
+                        ? `<span class="product-badge">${product.badge}</span>`
+                        : ""
+                    }
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>${product.name}</h3>
+
+                    <p class="product-description">
+                        ${product.description}
+                    </p>
+
+                    <div class="product-price">
+                        ${formatPrice(product.price)}
+                    </div>
+
+                    <a
+                        href="${createWhatsAppLink(product)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="buy-button"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        Order Now
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        `;
+
+    }).join("");
+
+}
+
+
+// INITIALIZE STORE
+
+renderProducts();
